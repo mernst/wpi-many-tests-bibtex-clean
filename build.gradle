@@ -14,7 +14,7 @@ plugins {
   id("net.ltgt.errorprone") version "1.2.1"
 
   // Checker Framework pluggable type-checking
-  id 'org.checkerframework' version '0.5.13'
+  // id 'org.checkerframework' version '0.5.13'
 }
 
 repositories {
@@ -23,6 +23,7 @@ repositories {
 
 dependencies {
     implementation 'org.plumelib:plume-util:1.2.0'
+    implementation 'org.checkerframework:checker-qual:3.8.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
@@ -58,7 +59,7 @@ tasks.withType(JavaCompile).configureEach {
 
 /// Checker Framework pluggable type-checking
 
-apply plugin: 'org.checkerframework'
+/*apply plugin: 'org.checkerframework'
 
 checkerFramework {
   checkers = [
@@ -87,7 +88,7 @@ if (project.hasProperty("cfLocal")) {
     testCompileOnly files(cfHome + "/checker/dist/checker-qual.jar")
     checkerFramework files(cfHome + "/checker/dist/checker.jar")
   }
-}
+}*/
 
 /// Javadoc
 
