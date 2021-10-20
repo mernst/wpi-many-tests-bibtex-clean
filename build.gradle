@@ -46,7 +46,7 @@ test {
 /// Error Prone linter
 
 dependencies {
-  errorprone("com.google.errorprone:error_prone_core:2.6.0")
+  errorprone("com.google.errorprone:error_prone_core:2.9.0")
   // JDK 8 support for Error Prone:
   errorproneJavac("com.google.errorprone:javac:9+181-r4173-1")
 }
@@ -55,7 +55,7 @@ tasks.withType(JavaCompile).configureEach {
   options.errorprone {
     disable("ReferenceEquality") // Use Interning Checker instead.
   }
-  if (JavaVersion.current() == JavaVersion.VERSION_16) {
+  if (JavaVersion.current() >= JavaVersion.VERSION_16) {
     options.fork = true
     options.forkOptions.jvmArgs += [
             "--add-opens", "jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
